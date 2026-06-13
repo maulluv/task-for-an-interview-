@@ -6,7 +6,7 @@
 
 ## 🔗 Демо
 
-- **Live:** _додати посилання на Vercel після деплою_
+- **Live:** https://mini-request-system-one.vercel.app
 - **Репозиторій:** https://github.com/maulluv/task-for-an-interview-
 
 ## 🛠️ Стек
