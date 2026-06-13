@@ -34,6 +34,7 @@ export const ManagerView = () => {
                         value={filter}
                         onChange={(e) => setFilter(e.target.value)}
                         options={FILTER_OPTIONS}
+                        className="min-w-40"
                     />
                     <Select
                         value={sort}
@@ -49,7 +50,7 @@ export const ManagerView = () => {
                 renderActions={(req) =>
                     NEXT_STATUS[req.status] && (
                         <Button
-                            variant="neutral"
+                            variant="green"
                             onClick={() =>
                                 changeStatus(req.id, NEXT_STATUS[req.status])
                             }

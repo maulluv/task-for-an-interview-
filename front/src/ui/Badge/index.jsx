@@ -6,6 +6,10 @@ const styles = {
 
 export const Badge = ({ status }) => {
     return (
-        <span className={`badge ${styles[status]} rounded-lg`}>{status}</span>
+        <span
+            className={`badge ${styles[status]} rounded-lg whitespace-nowrap shrink-0`}
+        >
+            {status}
+        </span>
     )
 }

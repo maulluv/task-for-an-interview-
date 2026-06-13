@@ -1,5 +1,7 @@
 const styles = {
     primary: 'btn-primary text-primary-content',
+    green: 'btn-success text-primary-content',
+    warning: 'btn-warning text-primary-content',
     neutral: 'btn-neutral',
     error: 'btn-error text-error-content',
     ghost: 'btn-ghost',

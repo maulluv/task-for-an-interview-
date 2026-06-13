@@ -46,19 +46,22 @@ export const RequestForm = ({ editingRequest, onDone }) => {
             <Input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Title"
+                placeholder="Назва заявки"
             />
 
             <Textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Description"
+                placeholder="Текст заявки"
             />
 
             {error && <p className="text-error text-sm">{error}</p>}
 
             <div className="flex gap-2">
-                <Button type="submit">
+                <Button
+                    type="submit"
+                    variant="green"
+                >
                     {editingRequest ? 'Зберегти' : 'Створити'}
                 </Button>
                 {editingRequest && (

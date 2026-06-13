@@ -40,7 +40,7 @@ export const UserView = () => {
                         <>
                             {req.status === 'new' && (
                                 <Button
-                                    variant="neutral"
+                                    variant="warning"
                                     onClick={() => setEditingRequest(req)}
                                 >
                                     Редагувати

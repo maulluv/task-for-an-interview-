@@ -16,7 +16,9 @@ export const RoleSwitcher = () => {
                     key={r.value}
                     onClick={() => setRole(r.value)}
                     className={`join-item btn ${
-                        role === r.value ? 'btn-primary text-primary-content' : 'btn-ghost'
+                        role === r.value
+                            ? 'bg-[#34495e] hover:bg-[#2c3e50] text-white border-[#34495e]'
+                            : 'btn-ghost'
                     }`}
                 >
                     {r.label}

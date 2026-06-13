@@ -18,6 +18,6 @@ export const NEXT_STATUS_LABEL = {
 }
 
 export const SORT_OPTIONS = [
-    { value: 'newest', label: 'Спочатку нові' },
-    { value: 'oldest', label: 'Спочатку старі' },
+    { value: 'newest', label: 'Новіші' },
+    { value: 'oldest', label: 'Старіші' },
 ]
