@@ -1,8 +1,15 @@
+import { useTranslation } from 'react-i18next'
 import { RequestCard } from '@/features/requests/RequestCard'
 
 export const RequestList = ({ requests, showId, renderActions }) => {
+    const { t } = useTranslation()
+
     if (requests.length === 0) {
-        return <p className="text-neutral text-center py-8">Заявок поки немає</p>
+        return (
+            <p className="text-neutral text-center py-8">
+                {t('requestList.empty')}
+            </p>
+        )
     }
 
     return (

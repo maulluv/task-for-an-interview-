@@ -1,11 +1,14 @@
+import { useTranslation } from 'react-i18next'
 import { useRequestStore } from '@/store/useRequestStore'
 
 const roles = [
-    { value: 'user', label: 'User' },
-    { value: 'manager', label: 'Manager' },
+    { value: 'user', labelKey: 'role.user' },
+    { value: 'manager', labelKey: 'role.manager' },
 ]
 
 export const RoleSwitcher = () => {
+    const { t } = useTranslation()
+
     const role = useRequestStore((s) => s.role)
     const setRole = useRequestStore((s) => s.setRole)
 
@@ -21,7 +24,7 @@ export const RoleSwitcher = () => {
                             : 'btn-ghost'
                     }`}
                 >
-                    {r.label}
+                    {t(r.labelKey)}
                 </button>
             ))}
         </div>

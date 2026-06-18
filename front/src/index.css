@@ -24,6 +24,29 @@
     --color-warning-content: #ffffff;
 }
 
+[data-theme="requestSystemDark"] {
+    --color-primary: #f9fafb;
+    --color-primary-content: #111827;
+
+    --color-base-100: #1f2937;
+    --color-base-200: #111827;
+    --color-base-300: #374151;
+    --color-base-content: #f3f4f6;
+
+    --color-neutral: #9ca3af;
+    --color-neutral-content: #111827;
+
+    --color-error: #f87171;
+    --color-error-content: #111827;
+
+    --color-success: #34d399;
+    --color-success-content: #111827;
+
+    --color-warning: #fbbf24;
+    --color-warning-content: #111827;
+}
+
+
 body {
     margin: 0;
     min-height: 100vh;

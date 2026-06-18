@@ -1,0 +1,65 @@
+{
+    "role": {
+        "user": "User",
+        "manager": "Manager"
+    },
+    
+    "common": {
+        "cancel": "Cancel"
+    },
+
+    "sort": {
+        "newest": "Newest",
+        "oldest": "Oldest"
+    },
+
+    "status": {
+        "all": "All",
+        "new": "New",
+        "in progress": "In progress",
+        "done": "Done"
+    },
+
+    "nextStatus": {
+        "new": "Take to work",
+        "in progress": "Complete"
+    },
+
+    "userView": {
+        "title": "My requests",
+        "edit": "Edit",
+        "delete": "Delete",
+        "deleteModalTitle": "Delete request?",
+        "deleteModalMessage": "Are you sure you want to delete the request «{{title}}» ?"
+    },
+
+    "managerView": {
+        "title": "All requests"
+    },
+
+    "requestForm": {
+        "newTitle": "New request",
+        "editTitle": "Edit request",
+        "titlePlaceholder": "Request title",
+        "descPlaceholder": "Request text",
+        "create": "Create",
+        "save": "Save",
+        "cancel": "Cancel",
+        "errorRequired": "Fill in both fields"
+    },
+
+    "nav": {
+        "requests": "Requests",
+        "logs": "Logs"
+    },
+
+    "logs": {
+        "title": "Action logs",
+        "empty": "No records yet",
+        "clear": "Clear"
+    },
+
+    "requestList": {
+        "empty": "No requests yet"
+    }
+}

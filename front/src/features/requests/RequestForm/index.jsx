@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useRequestStore } from '@/store/useRequestStore'
 import { Input } from '@/ui/Input'
 import { Textarea } from '@/ui/Textarea'
 import { Button } from '@/ui/Button'
 
 export const RequestForm = ({ editingRequest, onDone }) => {
+    const { t } = useTranslation()
+
     const addRequest = useRequestStore((s) => s.addRequest)
     const updateRequest = useRequestStore((s) => s.updateRequest)
 
@@ -18,7 +21,7 @@ export const RequestForm = ({ editingRequest, onDone }) => {
         e.preventDefault()
 
         if (!title.trim() || !description.trim()) {
-            setError('Заповніть обидва поля')
+            setError(t('requestForm.errorRequired'))
             return
         }
 
@@ -40,33 +43,34 @@ export const RequestForm = ({ editingRequest, onDone }) => {
             className="flex flex-col gap-3 bg-base-100 p-5 rounded-2xl shadow-sm"
         >
             <h3 className="text-lg font-semibold">
-                {editingRequest ? 'Редагувати заявку' : 'Нова заявка'}
+                {editingRequest
+                    ? t('requestForm.editTitle')
+                    : t('requestForm.newTitle')}
             </h3>
 
             <Input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Назва заявки"
+                placeholder={t('requestForm.titlePlaceholder')}
             />
 
             <Textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Текст заявки"
+                placeholder={t('requestForm.descPlaceholder')}
             />
 
             {error && <p className="text-error text-sm">{error}</p>}
 
             <div className="flex gap-2">
-                <Button
-                    type="submit"
-                    variant="green"
-                >
-                    {editingRequest ? 'Зберегти' : 'Створити'}
+                <Button type="submit" variant="green">
+                    {editingRequest
+                        ? t('requestForm.save')
+                        : t('requestForm.create')}
                 </Button>
                 {editingRequest && (
                     <Button variant="ghost" onClick={onDone}>
-                        Скасувати
+                        {t('requestForm.cancel')}
                     </Button>
                 )}
             </div>

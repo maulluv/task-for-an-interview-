@@ -1,49 +1,70 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+import { useLogStore } from '@/store/useLogStore'
+
+const log = (role, action) => useLogStore.getState().addLog(role, action)
 
 export const useRequestStore = create(
     persist(
-        (set) => ({
+        (set, get) => ({
             role: 'user',
+            view: 'main',
             requests: [],
 
             setRole: (role) => set({ role }),
+            setView: (view) => set({ view }),
 
             addRequest: (title, description) =>
-                set((state) => ({
-                    requests: [
-                        ...state.requests,
-                        {
-                            id: crypto.randomUUID(),
-                            title,
-                            description,
-                            status: 'new',
-                            createdAt: Date.now(),
-                        },
-                    ],
-                })),
+                set((state) => {
+                    log(get().role, `Створено заявку «${title}»`)
+                    return {
+                        requests: [
+                            ...state.requests,
+                            {
+                                id: crypto.randomUUID(),
+                                title,
+                                description,
+                                status: 'new',
+                                createdAt: Date.now(),
+                            },
+                        ],
+                    }
+                }),
 
             updateRequest: (id, data) =>
-                set((state) => ({
-                    requests: state.requests.map((req) =>
-                        req.id === id ? { ...req, ...data } : req
-                    ),
-                })),
+                set((state) => {
+                    const req = state.requests.find((r) => r.id === id)
+                    log(get().role, `Відредаговано заявку «${req?.title ?? id}»`)
+                    return {
+                        requests: state.requests.map((r) =>
+                            r.id === id ? { ...r, ...data } : r
+                        ),
+                    }
+                }),
 
             deleteRequest: (id) =>
-                set((state) => ({
-                    requests: state.requests.filter((req) => req.id !== id),
-                })),
+                set((state) => {
+                    const req = state.requests.find((r) => r.id === id)
+                    log(get().role, `Видалено заявку «${req?.title ?? id}»`)
+                    return {
+                        requests: state.requests.filter((r) => r.id !== id),
+                    }
+                }),
 
             changeStatus: (id, status) =>
-                set((state) => ({
-                    requests: state.requests.map((req) =>
-                        req.id === id ? { ...req, status } : req
-                    ),
-                })),
+                set((state) => {
+                    const req = state.requests.find((r) => r.id === id)
+                    log(
+                        get().role,
+                        `Статус заявки «${req?.title ?? id}» → ${status}`
+                    )
+                    return {
+                        requests: state.requests.map((r) =>
+                            r.id === id ? { ...r, status } : r
+                        ),
+                    }
+                }),
         }),
-        {
-            name: 'request-store',
-        }
+        { name: 'request-store' }
     )
 )
