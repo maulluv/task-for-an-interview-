@@ -18,6 +18,7 @@ export const ManagerView = () => {
 
     const requests = useRequestStore((s) => s.requests)
     const changeStatus = useRequestStore((s) => s.changeStatus)
+    const setView = useRequestStore((s) => s.setView)
 
     const [filter, setFilter] = useState('all')
     const [sort, setSort] = useState('newest')
@@ -35,9 +36,14 @@ export const ManagerView = () => {
     return (
         <div className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
-                <h2 className="text-xl font-semibold">
-                    {t('managerView.title')}
-                </h2>
+                <div className="flex items-center gap-3">
+                    <h2 className="text-xl font-semibold">
+                        {t('managerView.title')}
+                    </h2>
+                    <Button variant="ghost" onClick={() => setView('logs')}>
+                        {t('nav.logs')}
+                    </Button>
+                </div>
                 <div className="flex gap-2">
                     <Select
                         value={filter}

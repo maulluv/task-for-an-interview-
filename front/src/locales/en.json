@@ -41,5 +41,18 @@
         "save": "Save",
         "cancel": "Cancel",
         "errorRequired": "Fill in both fields"
+    },
+
+    "nav": {
+        "requests": "Requests",
+        "logs": "Logs"
+    },
+
+    "logs": {
+        "title": "Action logs",
+        "empty": "No records yet",
+        "clear": "Clear",
+        "roleUser": "User",
+        "roleManager": "Manager"
     }
 }
